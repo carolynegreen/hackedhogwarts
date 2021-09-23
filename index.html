@@ -2,14 +2,115 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
     <title>Hogwarts Student List</title>
   </head>
   <body>
-    <header></header>
-    <main></main>
-    <footer></footer>
-    <script src="script.js"></script>
+    <header>
+      <h1>Hogwarts School of Witchcraft and Wizardry</h1>
+    </header>
+    <main>
+      <div id="columns">
+        <section id="sec1">
+          <p>
+            <button id="gryf" class="filter" data-action="filter" data-filter="gryffindor">Gryffindor</button>
+            <button id="slyt" class="filter" data-action="filter" data-filter="slytherin">Slytherin</button>
+            <button id="huff" class="filter" data-action="filter" data-filter="hufflepuff">Hufflepuff</button>
+            <button id="rav" class="filter" data-action="filter" data-filter="ravenclaw">Ravenclaw</button>
+            <button id="expelled_filter" class="filter" data-action="filter" data-filter="expelledstudents">Expelled Students</button>
+            <button id="all_filter" class="filter" data-action="filter" data-filter="*">All students</button>
+            <span>
+              <input type="search" placeholder=" ⌕ search student..." id="search" name="search" />
+            </span>
+          </p>
+
+          <table id="list" class="list_categories">
+            <thead>
+              <tr id="sorting">
+                
+                <th data-action="sort" data-sort-direction="asc" data-sort="firstName">&#11139 first name</th>
+                <th data-action="sort" data-sort-direction="asc" data-sort="middleName">middle name</th>
+                <th data-action="sort" data-sort-direction="asc" data-sort="lastName">last name</th>
+                <th data-action="sort" data-sort-direction="asc" data-sort="nickname">nickname</th>
+                <th data-action="sort" data-sort-direction="asc" data-sort="house">house</th>
+                <th data-action="sort" data-sort-direction="asc" data-sort="prefect">prefect</th>
+              </tr>
+            </thead>
+            <tbody id="active">
+              <!-- student template will be copied and inserted here -->
+            </tbody>
+          </table>
+
+          <template id="student">
+            <tr>
+              <td data-field="first-name">NAME</td>
+              <td data-field="middle-name">MIDDLE</td>
+              <td data-field="last-name">LAST</td>
+              <td data-field="nickname">NICKNAME</td>
+              <td data-field="house">HOUSE</td>
+              <td data-field="prefect"><form>
+                <label for="prefect">
+                <input type="checkbox" name="prefect" >  
+                </label>
+            </form></td>
+
+                    
+            </tr>
+          </template>
+        </section>
+        <section id="sec2">
+          <div id="nr_box">
+            <p id="nr_displayed"></p>
+            <p id="nr_all"></p>
+            <p id="nr_expelled"></p>
+            <p id="nr_gryf"></p>
+            <p id="nr_huff"></p>
+            <p id="nr_rav"></p>
+            <p id="nr_slyt"></p>
+          </div>
+        </section>
+      </div>
+
+      <!-- POP UP -->
+      <div id="popup" class="hidden">
+        <div id="row1">
+          <div>
+            <img src="" alt="" id="stud_img" class="student_image" />
+
+          </div>
+          <div id="insideflex">
+          <div >
+            <h2 class="name"></h2>
+            <h2 class="surname"></h2>
+            <div id="house_flex">
+          <img src="" alt="" id="house_crest" class="crest_img"> 
+            <h3 id="house" class="house"> </h3>
+          </div>
+          </div>
+          <div id="close">X</div>
+        </div>
+        </div>
+        <div id="row2">
+          <div>
+          <button id="expell">EXPELL</button>
+          <button id="squad">ADD TO SQUAD</button>
+        
+        </div>
+          <div id="popup_text">
+          <p class="blood"></p>
+          <p class="prefect"></p>
+          <p class="expel_stat"></p>
+          <p class="squad_stat"></p>
+        </div>
+        </div>
+      </div>
+    </main>
+    
+    <footer>
+      <button type="submit" id="hack"><img src="/images/hedwig.svg"></button>
+      <p>Carolyne Green | Hacked Hogwarts Assignment | KEA Multimedia Design 22</p>
+    </footer>
   </body>
+  <script src="script.js"></script>
 </html>
