@@ -19,22 +19,22 @@
             <button id="huff" class="filter" data-action="filter" data-filter="hufflepuff">Hufflepuff</button>
             <button id="rav" class="filter" data-action="filter" data-filter="ravenclaw">Ravenclaw</button>
             <button id="expelled_filter" class="filter" data-action="filter" data-filter="expelledstudents">Expelled Students</button>
-            <button id="all_filter" class="filter" data-action="filter" data-filter="*">All students</button>
+            <button id="all_filter" class="filter" data-action="filter" data-filter="*">All Students</button>
             <span>
-              <input type="search" placeholder=" ⌕ search student..." id="search" name="search" />
+              <input type="search" placeholder= "⌕ search students" id="search" name="search" />
             </span>
-          </p>
-
+          </p></section></div>
+          <div id="group1">
+<section id="sec2">
           <table id="list" class="list_categories">
             <thead>
               <tr id="sorting">
-                
-                <th data-action="sort" data-sort-direction="asc" data-sort="firstName">&#11139 first name</th>
-                <th data-action="sort" data-sort-direction="asc" data-sort="middleName">middle name</th>
-                <th data-action="sort" data-sort-direction="asc" data-sort="lastName">last name</th>
-                <th data-action="sort" data-sort-direction="asc" data-sort="nickname">nickname</th>
-                <th data-action="sort" data-sort-direction="asc" data-sort="house">house</th>
-                <th data-action="sort" data-sort-direction="asc" data-sort="prefect">prefect</th>
+                <th data-action="sort" data-sort-direction="asc" data-sort="firstName">&#11139 First Name</th>
+                <th data-action="sort" data-sort-direction="asc" data-sort="middleName">Middle Name</th>
+                <th data-action="sort" data-sort-direction="asc" data-sort="lastName">Last Name</th>
+                <th data-action="sort" data-sort-direction="asc" data-sort="nickname">Nickname</th>
+                <th data-action="sort" data-sort-direction="asc" data-sort="house">House</th>
+                <th data-action="sort" data-sort-direction="asc" data-sort="prefect">Prefect</th>
               </tr>
             </thead>
             <tbody id="active">
@@ -44,11 +44,11 @@
 
           <template id="student">
             <tr>
-              <td data-field="first-name">NAME</td>
-              <td data-field="middle-name">MIDDLE</td>
-              <td data-field="last-name">LAST</td>
+              <td data-field="first-name">FIRST NAME</td>
+              <td data-field="middle-name">MIDDLE NAME</td>
+              <td data-field="last-name">LAST NAME</td>
               <td data-field="nickname">NICKNAME</td>
-              <td data-field="house">HOUSE</td>
+              <td data-field="house">HOGWART HOUSE</td>
               <td data-field="prefect"><form>
                 <label for="prefect">
                 <input type="checkbox" name="prefect" >  
@@ -59,7 +59,7 @@
             </tr>
           </template>
         </section>
-        <section id="sec2">
+        <section id="sec3">
           <div id="nr_box">
             <p id="nr_displayed"></p>
             <p id="nr_all"></p>
@@ -83,7 +83,7 @@
           <div >
             <h2 class="name"></h2>
             <h2 class="surname"></h2>
-            <div id="house_flex">
+            <div id="house_div">
           <img src="" alt="" id="house_crest" class="crest_img"> 
             <h3 id="house" class="house"> </h3>
           </div>
@@ -109,7 +109,7 @@
     
     <footer>
       <button type="submit" id="hack"><img src="/images/hedwig.svg"></button>
-      <p>Carolyne Green | Hacked Hogwarts Assignment | KEA Multimedia Design 22</p>
+      <p>Carolyne Green | Hacked Hogwarts Assignment | KEA Multimedia Design 2021</p>
     </footer>
   </body>
   <script src="script.js"></script>
