@@ -8,9 +8,9 @@
   --color-2: #cdcfd6; /* buttons */
   --color-3: #4e0d12;
   --color-4: #e7b13c; /* hogwarts title */
-  --color-5: #2d4459; /* website background */
+  --color-5: #223646; /* website background */
   --color-6: #374e64;
-  --color-7: #402f21;
+  --color-7: #000000;
   --font-1: "Harry Potter", sans-serif; /* h1 harry potter font*/
   --font-2: "Alice", serif; /* h2 student names */
   --font-3: "Abel", sans-serif; /* h3 house names */
@@ -21,6 +21,8 @@
 body {
   background-color: var(--color-5);
   margin: 5px;
+  margin-left: 1.2vw;
+  background-image: url(/images/candles.png);
 }
 
 header {
@@ -50,7 +52,7 @@ button.filter,
   border: 1.5px solid transparent;
   background-color: var(--color-1);
   margin: 5px;
-  border-radius: 10px;
+  border-radius: 5px;
   padding: 5px 15px;
 }
 
@@ -88,7 +90,7 @@ button.filter,
   padding-top: 3vw;
   font-size: 1.5vw;
   font-family: var(--font-4);
-  color: var(--color-7);
+  color: black;
 }
 
 #gryf:focus {
@@ -117,13 +119,13 @@ button.filter,
 
 #huff:focus {
   border: 1.5px solid black;
-  background-color: #eece19;
+  background-color: #eebc19;
   color: black;
 }
 
 #huff:hover {
   border: 1.5px solid black;
-  background-color: #eece19;
+  background-color: #eebc19;
   color: black;
 }
 
@@ -154,7 +156,7 @@ button.filter,
   background-color: var(--color-2);
 }
 
-/* table */
+/* student list table */
 table {
   color: var(--color-2);
   font-family: var(--font-5);
@@ -167,7 +169,7 @@ table {
 
 tr th {
   text-align: left;
-  padding: 10px 20px;
+  padding: 10px 15px;
   background-color: #cdcfd688;
   font-variant: small-caps;
   font-size: 1.3vw;
@@ -175,16 +177,19 @@ tr th {
 }
 
 tr th:hover {
-  color: var(--color-5);
+  color: var(--color-4);
 }
 
 #list tbody tr td {
-  padding: 5px;
-  border-bottom: 2px solid var(--color-2);
+  font-size: 1.2vw;
+  text-align: left;
+  padding: 10px;
+  padding-left: 15px;
+  border-bottom: 2px solid var(--color-5);
 }
 
 #sorting th.sortby {
-  color: var(--color-5);
+  color: var(--color-4);
 }
 
 #sorting th.sortby[data-sort-direction="asc"]::after {
@@ -193,21 +198,9 @@ tr th:hover {
 #sorting th.sortby[data-sort-direction="desc"]::after {
   content: "↓";
 }
-td[data-field="prefect"] {
-  text-align: center;
-  font-size: 2vw;
-  color: var(--color-3);
-}
 
-td[data-field="prefect"]:hover {
+td[data-field]:hover {
   cursor: pointer;
-  font-weight: 600;
-}
-
-td[data-field="first-name"]:hover {
-  cursor: pointer;
-  color: var(--color-3);
-  font-weight: 600;
 }
 
 /* pop up styling */
@@ -220,12 +213,12 @@ td[data-field="first-name"]:hover {
   background-color: var(--color-3);
   border: 3px solid var(--color-2);
   color: var(--color-2);
-  border-radius: 20px;
+  border-radius: 10px;
 }
 
 #close:hover {
   cursor: pointer;
-  color: rgb(192, 17, 17);
+  color: rgb(175, 17, 17);
 }
 
 #close {
@@ -235,12 +228,13 @@ td[data-field="first-name"]:hover {
 
 #row1 {
   display: flex;
-  gap: 100px;
+  gap: 50px;
   padding: 20px 20px 20px 20px;
 }
 
 #house_div {
   display: flex;
+  flex-direction: column;
 }
 
 .crest_img {
@@ -281,6 +275,7 @@ td[data-field="first-name"]:hover {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  padding-left: 40px;
 }
 
 #row2 {
@@ -291,22 +286,22 @@ td[data-field="first-name"]:hover {
 }
 
 #row2 p {
-  margin: -2px;
+  margin: 0;
   padding-bottom: 10px;
-  font-weight: 200;
-  font-family: var(--font-3);
+  font-family: var(--font-5);
+  font-size: 1.1vw;
 }
 
 #row2 button {
-  border: 1.5px solid var(--color-2);
+  border: none;
   background-color: transparent;
-  padding: 10px;
+  padding: 7px;
   width: 100%;
   font-family: var(--font-3);
   color: var(--color-4);
 }
 
-#expell {
+#expel {
   border-radius: 10px;
 }
 
@@ -383,18 +378,16 @@ td[data-field="first-name"]:hover {
   cursor: pointer;
 }
 
-/* ----- SQUAD TRY AGAIN ----- */
-
+/* squad warning */
 .dialog {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 40%;
-  background-color: var(--color-7);
-  border: 3px solid var(--color-2);
-  color: var(--color-2);
-  border-radius: 25px;
+  width: 30%;
+  background-color: var(--color-3);
+  color: var(--color-1);
+  border-radius: 15px;
 }
 
 .squad_warning {
@@ -412,22 +405,24 @@ td[data-field="first-name"]:hover {
 
 .squad_warning p {
   text-align: center;
+  font-family: var(--font-5);
+  font-size: 1.3vw;
+  margin: 10%;
 }
 .squad_warning h2 {
   text-align: center;
-  margin-bottom: 0;
-  margin-top: -15px;
+  margin-top: 0;
 }
 
 .squad_warning .close_warning {
   display: block;
   margin-right: 10px;
   margin-left: auto;
-  border: 0;
-  background-color: var(--color-7);
-  border-radius: 25px;
+  border: none;
+  background-color: transparent;
   padding: 5px 10px 5px 10px;
-  color: var(--color-2);
+  color: var(--color-1);
+  font-family: var(--font-4);
   font-size: 2vw;
 }
 
@@ -473,7 +468,7 @@ footer button:hover {
 .hacked_main {
   width: 100%;
   height: 100vh;
-  background-color: rgba(118, 112, 112, 0.742);
+  background-color: rgba(0, 0, 0, 0.623);
   display: grid;
   place-items: center;
   margin: 0;
@@ -490,49 +485,40 @@ footer button:hover {
   padding: 0;
 }
 
-.center_hacked ul {
-  display: flex;
-  justify-content: center;
-}
-
 .center_hacked ul li {
   list-style: none;
   text-transform: uppercase;
-  font-size: 7rem;
+  font-size: 5rem;
   padding-left: 2rem;
   animation: light 1s linear infinite;
   color: var(--color-7);
-  font-family: var(--font-3);
-}
-.center_hacked ul li:first-child {
-  padding-left: 0;
+  font-family: var(--font-1);
 }
 
 @keyframes light {
   0% {
-    color: var(--color-7);
+    color: var(--color-1);
     text-shadow: none;
+  }
+  20% {
+    color: var(--color-1);
+    text-shadow: none;
+  }
+  40% {
+    color: var(--color-1);
+    text-shadow: 0 0 1rem var(--color-2), 0 0 1rem var(--color-2);
   }
   80% {
-    color: var(--color-7);
-    text-shadow: none;
+    color: var(--color-1);
+    text-shadow: 0 0 2rem var(--color-2), 0 0 2rem var(--color-2);
   }
   100% {
-    color: var(--color-4);
-    text-shadow: 0 0 1rem var(--color-4), 0 0 1rem var(--color-4);
+    color: var(--color-1);
+    text-shadow: 0 0 1rem var(--color-2), 0 0 1rem var(--color-2);
   }
 }
 
-.center_hacked ul li:nth-child(1) {
-  animation-delay: 0.2s;
-}
-
-.center_hacked ul li:nth-child(8) {
-  animation-delay: 0.2s;
-}
-
-/*TRYING TO EXPEL ME*/
-
+/* trying to expel yourself */
 .center_expelling_me {
   width: 70%;
   height: auto;
@@ -547,26 +533,9 @@ footer button:hover {
 
 .center_expelling_me ul li {
   list-style: none;
-  text-transform: uppercase;
-  font-size: 6vw;
-  font-weight: 900;
+  font-size: 7vw;
   text-align: center;
   padding-left: 2rem;
-  animation: light 1s linear infinite;
-  color: var(--color-7);
-  font-family: var(--font-3);
-}
-.center_expelling_me ul li:first-child {
-  padding-left: 0;
-}
-
-.center_expelling_me ul li:nth-child(1) {
-  animation-delay: 0.2s;
-  font-size: 15vw;
-}
-
-.center_expelling_me ul li:nth-child(3) {
-  animation-delay: 0.2s;
-  font-size: 15vw;
-  padding-left: 0;
+  color: var(--color-1);
+  font-family: var(--font-1);
 }
