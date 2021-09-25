@@ -47,6 +47,74 @@ function registerButtons() {
   document
     .querySelectorAll("[data-action='sort']")
     .forEach((button) => button.addEventListener("click", selectSort));
+  function tryToMakeAPrefect(selectedStudent) {
+    const allPrefects = allStudents.filter((student) => student.prefect);
+    const prefects = allPrefects.filter(
+      (prefect) => prefect.house === selectedStudent.house
+    );
+
+    const other = prefects
+      .filter(
+        (prefects) =>
+          prefects.house === selectedStudent.house &&
+          prefects.gender === selectedStudent.gender
+      )
+      .shift();
+
+    const numberOfprefects = prefects.length;
+    if (numberOfprefects >= 2) {
+      selectedStudent.prefect = true;
+
+      //* not able to get one male and one female only
+      console.log("there can only be one male and female prefect");
+      removeOther(other);
+    } else {
+      makePrefect(selectedStudent);
+    }
+
+    function removeOther(other) {
+      // ask the user remove other prefect
+      document.querySelector("#remove_other").classList.remove("hide");
+      document
+        .querySelector("#remove_other .close_warning")
+        .addEventListener("click", closeWarn);
+      document
+        .querySelector("#remove_other .removeother")
+        .addEventListener("click", clickRemoveOther);
+
+      document.querySelector(
+        "#remove_other [data-field=otherprefect]"
+      ).textContent = other.firstName;
+
+      function closeWarn() {
+        document.querySelector("#remove_other").classList.add("hide");
+        document
+          .querySelector("#remove_other .close_warning")
+          .removeEventListener("click", closeWarn);
+        document
+          .querySelector("#remove_other .removeother")
+          .removeEventListener("click", clickRemoveOther);
+      }
+
+      //if remove other:
+      function clickRemoveOther() {
+        removePrefect(other);
+        makePrefect(selectedStudent);
+        buildList();
+        closeDialog();
+      }
+    }
+
+    function removePrefect(prefectStudent) {
+      prefectStudent.prefect = false;
+      popup.querySelector(".prefect").textContent = `Prefect: No`;
+    }
+
+    function makePrefect(student) {
+      student.prefect = true;
+      popup.querySelector(".prefect").textContent = `Prefect: Yes`;
+    }
+  }
 }
 
 function registerExpelledStudents() {
@@ -60,7 +128,7 @@ function registerSearch() {
 }
 
 async function loadJSON() {
-  console.log("loadJS");
+  console.log("loadJason");
   const response = await fetch(
     "https://petlatkea.dk/2021/hogwarts/students.json"
   );
@@ -718,8 +786,6 @@ function hackTheSystem() {
 
     //Add myself to student list
     addMe();
-  } else {
-    console.log("It's already been hacked!");
   }
 }
 
