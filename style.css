@@ -83,6 +83,7 @@ button.filter,
   width: 30%;
   height: 100%;
   position: fixed;
+  background-color: burlywood;
   background-image: url(../images/scroll.png);
   background-repeat: no-repeat;
   background-size: contain;
