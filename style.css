@@ -3,6 +3,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Mansalva&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Abel&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lora&display=swap");
+
 :root {
   --color-1: #e5e5e5;
   --color-2: #cdcfd6; /* buttons */
@@ -22,7 +23,7 @@ body {
   background-color: var(--color-5);
   margin: 5px;
   margin-left: 1.2vw;
-  background-image: url(images/candles.png);
+  background-image: url(../images/candles.png);
 }
 
 header {
