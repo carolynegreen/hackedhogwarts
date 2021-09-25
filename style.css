@@ -22,7 +22,7 @@ body {
   background-color: var(--color-5);
   margin: 5px;
   margin-left: 1.2vw;
-  background-image: url(/images/candles.png);
+  background-image: url(images/candles.png);
 }
 
 header {
