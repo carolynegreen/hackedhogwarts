@@ -108,6 +108,10 @@ function prepareObject(jsonObject) {
   student.house = getHouse(jsonObject.house.trim());
   student.imageUrl = getImage(student.lastName, student.firstName);
 
+  if (student.middleName === undefined) {
+    delete student.middleName;
+  }
+
   return student;
 }
 
@@ -290,7 +294,7 @@ function displayStudent(student) {
 
 //popup
 function showPopUp(student) {
-  console.log("pop up");
+  console.log("student pop up");
   closePop.style.display = "";
   popup.style.display = "";
 
@@ -316,10 +320,8 @@ function showPopUp(student) {
   //expel students
   if (student.expel === true) {
     popup.querySelector("#expel").style.backgroundColor = "black";
-    popup.querySelector("#expel").style.cursor = "";
     popup.querySelector("#expel").textContent = "EXPELLED";
   } else {
-    popup.querySelector("#expel").style.backgroundColor = "transparent";
     popup.querySelector("#expel").style.cursor = "pointer";
     popup.querySelector("#expel").textContent = "EXPEL";
 
@@ -332,7 +334,6 @@ function showPopUp(student) {
       student.expel = true;
 
       popup.querySelector("#expel").style.backgroundColor = "black";
-      popup.querySelector("#expel").style.cursor = "";
       popup.querySelector("#expel").textContent = "EXPELLED";
       popup.querySelector(
         ".expel_stat"
@@ -345,8 +346,8 @@ function showPopUp(student) {
       document.querySelector("#expelling_me").classList.remove("hide");
       setTimeout(function () {
         document.querySelector("#expelling_me").classList.add("hide");
-      }, 4000);
-      popup.querySelector("#expel").textContent = "CAN'T BE EXPEL";
+      }, 3000);
+      popup.querySelector("#expel").textContent = "CAN'T BE EXPELLED";
     }
   }
 
@@ -401,7 +402,7 @@ function showPopUp(student) {
   function tryToBeINSquad(selectedStudent) {
     if (selectedStudent.house === "Slytherin") {
       addToSquad(selectedStudent);
-    } else if (selectedStudent.bloodstatus === "pure-blood") {
+    } else if (selectedStudent.bloodstatus === "Pure-Blood") {
       addToSquad(selectedStudent);
     } else {
       selectedStudent.squad = false;
@@ -464,7 +465,7 @@ function showPopUp(student) {
   } else if (student.house === "Gryffindor") {
     document.querySelector("#popup").style.color = "#d6d5d5";
     document.querySelector("#popup").style.backgroundColor = "#740001";
-    document.querySelector("#popup").style.border = "3px solid #d6d5d5";
+    document.querySelector("#popup").style.border = "3px solid #D3A625";
     document.querySelector("#house").style.color = "#D3A625";
     document.querySelector("#expel").style.backgroundColor = "#D3A625";
     document.querySelector("#expel").style.color = "#740001";
@@ -486,7 +487,7 @@ function showPopUp(student) {
 // end of pop up
 
 function expelTheStudent(student) {
-  console.log("Expel the Student");
+  console.log("Expel Student");
   allStudents.splice(allStudents.indexOf(student), 1);
   expelledStudents.push(student);
 }
@@ -506,8 +507,11 @@ function tryToMakeAPrefect(selectedStudent) {
     )
     .shift();
 
-  // if there is another of the same type, house & gender
-  if (other !== undefined) {
+  const numberOfprefects = prefects.length;
+  if (numberOfprefects >= 2) {
+    selectedStudent.prefect = true;
+
+    //* not able to get one male and one female only
     console.log("there can only be one male and female prefect");
     removeOther(other);
   } else {
@@ -559,7 +563,6 @@ function tryToMakeAPrefect(selectedStudent) {
 }
 
 // number of students
-
 function countGryffindors(student) {
   if (student.house === "Gryffindor") {
     return true;
@@ -724,7 +727,7 @@ function hackTheSystem() {
 function addMe() {
   const me = Object.create(Student);
 
-  me.imageUrl = "";
+  me.imageUrl = "green_c.png";
   me.firstName = "Carolyne";
   me.lastName = "Green";
   me.middleName = "";
@@ -742,18 +745,18 @@ function addMe() {
 
 function messWithBloodstatus() {
   allStudents.forEach((student) => {
-    if (student.bloodstatus === "muggleborn") {
-      student.bloodstatus = "pure-blood";
-    } else if (student.bloodstatus === "half-blood") {
-      student.bloodstatus = "pure-blood";
+    if (student.bloodstatus === "Muggleborn") {
+      student.bloodstatus = "Pure-Blood";
+    } else if (student.bloodstatus === "half-Blood") {
+      student.bloodstatus = "Pure-Blood";
     } else {
       let bloodNumber = Math.floor(Math.random() * 3);
       if (bloodNumber === 0) {
-        student.bloodstatus = "muggleborn";
+        student.bloodstatus = "Muggleborn";
       } else if (bloodNumber === 1) {
-        student.bloodstatus = "half-blood";
+        student.bloodstatus = "Half-Blood";
       } else {
-        student.bloodstatus = "pure-blood";
+        student.bloodstatus = "Pure-Blood";
       }
     }
   });

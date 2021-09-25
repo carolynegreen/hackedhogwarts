@@ -8,8 +8,8 @@
   --color-2: #cdcfd6; /* buttons */
   --color-3: #4e0d12;
   --color-4: #e7b13c; /* hogwarts title */
-  --color-5: #223646; /* website background */
-  --color-6: #374e64;
+  --color-5: #223341; /* website background */
+  --color-6: #1d2c38;
   --color-7: #000000;
   --font-1: "Harry Potter", sans-serif; /* h1 harry potter font*/
   --font-2: "Alice", serif; /* h2 student names */
@@ -50,6 +50,7 @@ h1 {
 button.filter,
 #search {
   border: 1.5px solid transparent;
+  font-family: var(--font-2);
   background-color: var(--color-1);
   margin: 5px;
   border-radius: 5px;
@@ -76,7 +77,7 @@ button.filter,
 
 #sec3 {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   margin-left: 70%;
   width: 30%;
   height: 100%;
@@ -184,7 +185,7 @@ tr th:hover {
   font-size: 1.2vw;
   text-align: left;
   padding: 10px;
-  padding-left: 15px;
+  padding-left: 1vw;
   border-bottom: 2px solid var(--color-5);
 }
 
@@ -192,11 +193,15 @@ tr th:hover {
   color: var(--color-4);
 }
 
+#nah:hover {
+  color: var(--color-2);
+}
+
 #sorting th.sortby[data-sort-direction="asc"]::after {
-  content: "↑";
+  content: "↓";
 }
 #sorting th.sortby[data-sort-direction="desc"]::after {
-  content: "↓";
+  content: "↑";
 }
 
 td[data-field]:hover {
@@ -243,7 +248,7 @@ td[data-field]:hover {
 }
 
 .student_image {
-  max-width: 145%;
+  max-width: 150%;
   margin-right: 10px;
   border-radius: 25%;
   margin: 5px;
@@ -311,8 +316,7 @@ td[data-field]:hover {
   margin-top: 10px;
 }
 
-/* -------------WARNING STYLING---------------- */
-
+/* prefect warning bubble */
 .prefect_warning {
   position: fixed;
   top: 0;
@@ -331,29 +335,36 @@ td[data-field]:hover {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 45%;
+  width: 30%;
   background-color: var(--color-3);
-  border: 3px solid var(--color-2);
-  color: var(--color-2);
-  border-radius: 25px;
+  color: var(--color-1);
+  border-radius: 15px;
 }
 
 .prefect_warning p {
   text-align: center;
+  font-family: var(--font-5);
+  font-size: 1.2vw;
+  padding-left: 5vw;
+  padding-right: 5vw;
+  padding-bottom: 5px;
 }
+
 .prefect_warning h2 {
   text-align: center;
-  margin-bottom: 0;
-  margin-top: -15px;
+  margin: 0;
+  font-family: var(--font-1);
+  letter-spacing: 5px;
 }
+
 .removeother {
   display: block;
   margin-right: auto;
   margin-left: auto;
   margin-bottom: 20px;
-  border: 1.5px solid var(--color-6);
+  border: none;
   background-color: var(--color-1);
-  border-radius: 25px;
+  border-radius: 5px;
   padding: 5px 10px 5px 10px;
 }
 
@@ -411,6 +422,8 @@ td[data-field]:hover {
 }
 .squad_warning h2 {
   text-align: center;
+  font-family: var(--font-1);
+  letter-spacing: 5px;
   margin-top: 0;
 }
 
@@ -464,7 +477,7 @@ footer button:hover {
   cursor: pointer;
 }
 
-/*------> HACKED SYSTEM STYLING <---------*/
+/* hacked */
 .hacked_main {
   width: 100%;
   height: 100vh;
@@ -539,3 +552,16 @@ footer button:hover {
   color: var(--color-1);
   font-family: var(--font-1);
 }
+
+/* @media only screen and (max-width: 800px) {
+  #group1 {
+    flex-direction: column;
+    background-color: yellow;
+  }
+
+  #sec3 {
+    background-image: none;
+    background-color: var(--color-2);
+    font-family: var(--font-5);
+  }
+} */

@@ -85,11 +85,7 @@
                 >
                   First Name
                 </th>
-                <th
-                  data-action="sort"
-                  data-sort-direction="asc"
-                  data-sort="middleName"
-                >
+                <th id="nah">
                   Middle Name
                 </th>
                 <th
@@ -99,11 +95,7 @@
                 >
                   Last Name
                 </th>
-                <th
-                  data-action="sort"
-                  data-sort-direction="asc"
-                  data-sort="nickname"
-                >
+                <th id="nah">
                   Nickname
                 </th>
                 <th
@@ -134,7 +126,7 @@
               <td data-field="last-name">LAST NAME</td>
               <td data-field="nickname">NICKNAME</td>
               <td data-field="house">HOGWART HOUSE</td>
-              <td data-field="prefect">🗷</td>
+              <td data-field="prefect" id="box">🗷</td>
               </td>
             </tr>
           </template>
@@ -191,10 +183,9 @@
           <h2 class="warning">Warning!</h2>
           <p>
             There can only be one prefect each gender from each house.<br />
-            Do you want to remove the other Prefect?
           </p>
           <button class="removeother">
-            Remove <span data-field="otherprefect">other</span>
+            Remove <span data-field="otherprefect">Other</span>
           </button>
         </div>
       </div>
@@ -227,6 +218,9 @@
       <!-- CAN'T EXPEL ME -->
    <div id="expelling_me" class="hacked_main hide">
     <div class="center_expelling_me">
+      <!-- <video width="320" height="240" controls>
+        <source src="magicword.mp4" type="video/mp4">
+      </video> -->
       <ul>
         <li>Carolyne Cannot Be Expelled!</li>
     </ul>
